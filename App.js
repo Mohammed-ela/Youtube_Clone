@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import Amplify from 'aws-amplify';
+import awsConfig from './aws-exports';
+import SignIn from './SignIn';
+import Home from './Home';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+Amplify.configure(awsConfig);
+
+function App() {
+    return (
+        <div>
+            {/* Composants de votre application */}
+            <SignIn />
+        </div>
+    );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
